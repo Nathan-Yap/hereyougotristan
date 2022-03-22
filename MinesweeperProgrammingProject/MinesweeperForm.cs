@@ -14,8 +14,8 @@ namespace MinesweeperProgrammingProject
     {
         //////////////////////////////////////////
         // class constants
-        private const int ROWS = 8;
-        private const int COLS = 8;
+        private const int ROWS = 20;
+        private const int COLS = 20;
         private const int BUTTON_SIZE = 25;
         private const string BOMB = "\uD83D\uDCA3";
         private const string FLAG = "\uD83D\uDEA9";
@@ -24,6 +24,7 @@ namespace MinesweeperProgrammingProject
         private bool gameOver = false;
         private int timerTick = 0;
         private bool win = false;
+        private int chanceMine = 85;
         Random rand = new Random();
 
         //////////////////////////////////////////
@@ -103,7 +104,7 @@ namespace MinesweeperProgrammingProject
             {
                 for (int j = 0; j < this.Cols; j++)
                 {
-                    if (rand.Next(0, 100) > 90)
+                    if (rand.Next(0, 100) > chanceMine)
                     {
                         cells[i, j].hasMine = true;
                         for (int l = -1; l < 2; l++)
@@ -301,5 +302,6 @@ namespace MinesweeperProgrammingProject
 
             }
         }
+
     }
 }
